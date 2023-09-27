@@ -14,7 +14,7 @@ const chalk = new Chalk({ level: 1 });
 const cwd = process.cwd();
 
 // 出现加载图标
-const spinner = ora('下载中...');
+const spinner = ora(chalk.cyan('项目创建中...'));
 
 // 模板目录
 const templateList = getJson('../template.json');
