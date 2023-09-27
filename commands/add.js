@@ -26,9 +26,9 @@ const question = [
     message: '请输入模板名称', // 问题描述
     validate: function (value) {
       if (!value) {
-        return chalk.red('name is required!');
+        return chalk.red('模板名称不可为空!');
       } else if (templateList[value]) {
-        return 'Template has already existed!';
+        return '模板已存在!';
       } else {
         return true;
       }
@@ -40,7 +40,7 @@ const question = [
     message: '请输入模板地址',
     validate: function (value) {
       if (!value) {
-        return chalk.red('The url is required!');
+        return chalk.red('模板地址不可为空!');
       } else {
         return true;
       }
@@ -60,11 +60,8 @@ inquirer.prompt(question).then((answers) => {
     (err) => {
       if (err) console.log(chalk.red(symbols.error), chalk.red(err));
       console.log('\n');
-      console.log(
-        chalk.green(symbols.success),
-        chalk.green('Add template successfully!\n')
-      );
-      console.log(chalk.green('The template list is:\n'));
+      console.log(chalk.green(symbols.success), chalk.green('模板添加成功!\n'));
+      console.log(chalk.green('当前模板列表:\n'));
       showTable(templateList);
       process.exit();
     }

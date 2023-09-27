@@ -14,7 +14,7 @@ const chalk = new Chalk({ level: 1 });
 const cwd = process.cwd();
 
 // 出现加载图标
-const spinner = ora('Downloading...');
+const spinner = ora('下载中...');
 
 // 模板目录
 const templateList = getJson('../template.json');
@@ -32,7 +32,7 @@ const question = [
     type: 'input',
     validate(val) {
       if (!val) {
-        return chalk.red('projectName is required!');
+        return chalk.red('项目名称不可为空!');
       }
       return true;
     },
@@ -57,20 +57,18 @@ inquirer.prompt(question).then((answers) => {
         spinner.fail();
         console.log(
           chalk.red(symbols.error),
-          chalk.red(`Generating failed! ${err}`)
+          chalk.red(`项目创建失败! ${err}`)
         );
         return;
       }
       fs.rm(resolve(targetDir, '.git'), { recursive: true }, () => {
         // 结束加载图标
         spinner.succeed();
-        console.log(
-          chalk.green(symbols.success),
-          chalk.green('Generating completed!')
-        );
-        console.log('\n To get started');
+        console.log(chalk.green(symbols.success), chalk.green('项目创建成功!'));
+        console.log('\n 启动项目:');
         console.log(`\n  cd ${projectName}`);
-        console.log(`  pnpm install \n`);
+        console.log(`  pnpm install`);
+        console.log(`  pnpm dev \n`);
       });
     }
   );

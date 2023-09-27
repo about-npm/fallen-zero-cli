@@ -21,13 +21,13 @@ const templateList = getJson('../template.json');
 const question = [
   {
     name: 'name',
-    message: '请输入要删除的模块名称',
+    message: '请输入要删除的模板名称',
     validate: function (value) {
       if (!value) {
-        return chalk.red('name is required!');
+        return chalk.red('模板名称不可为空!');
       }
       if (!templateList[value]) {
-        return chalk.red('Template does not exist!');
+        return chalk.red('模板不存在!');
       }
       return true;
     },
@@ -45,11 +45,8 @@ inquirer.prompt(question).then((answers) => {
     (err) => {
       if (err) console.log(chalk.red(symbols.error), chalk.red(err));
       console.log('\n');
-      console.log(
-        chalk.green(symbols.success),
-        chalk.green('Deleted successfully!\n')
-      );
-      console.log(chalk.green('The latest templateList is:\n'));
+      console.log(chalk.green(symbols.success), chalk.green('删除成功!\n'));
+      console.log(chalk.green('当前模板列表:\n'));
       showTable(templateList);
       process.exit();
     }
