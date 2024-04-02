@@ -1,6 +1,6 @@
 {
   "name": "@fallen-zero/cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "fallen_zero cli",
   "main": "index.js",
   "scripts": {

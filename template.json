@@ -1,1 +1,5 @@
-{"vue3":"https://gitee.com/chen-ge-project/vue3-template-unocss.git","vue2":"https://gitee.com/chen-ge-project/vue2-template.git"}
+{
+  "vue3": "https://gitee.com/chen-ge-project/vue3-template-unocss.git",
+  "vue3.4": "https://gitee.com/chen-ge-project/vue3.4.git",
+  "vue2": "https://gitee.com/chen-ge-project/vue2-template.git"
+}
